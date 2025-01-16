@@ -96,7 +96,7 @@
   --table-head-color: var(--bs-white, var(--white-color));
 
   --table-header-color: var(--bs-white, var(--bs-gray-300));
-  --input-area-color: #f1f3f6;
+  --input-area-color: #f6f8fc;
   --date-picker-background: #f2f2f2;
   --grey-bg-color-dark: #707070;
   --dropdown-border-color: #cccccc;
@@ -136,6 +136,9 @@
   opacity: 0.5;
 }
 
+.bgcolor {
+  background-color: var(--grey-bg-color);
+}
 .cards:hover::after {
   opacity: 1;
   mix-blend-mode: normal;
@@ -319,6 +322,7 @@
 .input {
   flex: 1;
   position: relative;
+  max-width: 473px;
 }
 
 .btnsContainer {
@@ -1852,6 +1856,7 @@ input[type='radio']:checked + label:hover {
 
 .btnsContainerOrgList {
   display: flex;
+  justify-content: space-between;
   margin: 2.5rem 0 2.5rem 0;
 }
 
@@ -1884,6 +1889,9 @@ input[type='radio']:checked + label:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  color: var(--brown-color);
 }
 
 .pluginStoreBtn:hover,
@@ -1950,9 +1958,9 @@ input[type='radio']:checked + label:hover {
   position: relative;
 }
 
-.btnsContainerOrgList input {
+/* .btnsContainerOrgList input {
   outline: 1px solid var(--bs-gray-400);
-}
+} */
 
 .btnsContainerOrgList .inputOrgList button {
   width: 52px;
@@ -2823,26 +2831,36 @@ form > input {
   height: 100%;
   display: flex;
   background-color: var(--search-button-bg);
-  border-color: var(--search-button-border, var(--black-color));
   justify-content: center;
   align-items: center;
+  border: none;
+  color: var(--brown-color);
+}
+
+.sigin_buttons {
+  color: var(--brown-color);
 }
 
 .login_btn {
   background-color: var(--search-button-bg);
-  border-color: var(--search-button-border, var(--black-color));
+  border: none;
+  color: var(--brown-color);
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 100%;
+  font-weight: bold;
   transition: background-color 0.2s ease;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .reg_btn {
-  background-color: var(--dropdown-border-color);
+  background-color: #eaebef;
   border-color: var(--dropdown-border-color);
   margin-top: 1rem;
-  color: var(--bs-white);
+  color: var(--brown-color);
+  border: none;
+  font-weight: bold;
   margin-bottom: 1rem;
   width: 100%;
   transition: background-color 0.2s ease;
@@ -3483,6 +3501,11 @@ button[data-testid='createPostBtn'] {
 
 .leftDrawer .optionList button .iconWrapper {
   width: 36px;
+}
+
+.leftDrawer .sidebarcompheight {
+  height: 100%;
+  padding-bottom: 48px;
 }
 
 .leftDrawer .profileContainer {

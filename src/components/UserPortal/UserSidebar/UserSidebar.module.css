@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem 0 1rem;
-  background-color: var(--bs-white);
+  background-color: var(--input-area-color);
   transition: 0.5s;
   font-family: var(--bs-leftDrawer-font-family);
 }
@@ -19,6 +19,11 @@
   left: 0;
   bottom: 0;
   animation: comeToRightBigScreen 0.5s ease-in-out;
+}
+
+.leftbarcompheight {
+  height: 100%;
+  padding-bottom: 48px;
 }
 
 .inactiveDrawer {

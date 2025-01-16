@@ -3,7 +3,7 @@
 }
 
 .colorWhite {
-  color: white;
+  color: #555555;
 }
 
 .colorLight {
@@ -16,8 +16,12 @@
 }
 
 .content {
-  height: fit-content;
+  height: 100vh;
   min-height: calc(100% - 40px);
+}
+
+.searchwidth {
+  width: 473px;
 }
 
 .paddingY {
@@ -26,6 +30,7 @@
 
 .containerHeight {
   height: 100vh;
+  background-color: var(--input-area-color);
   padding: 1rem 1.5rem 0 calc(300px + 1.5rem);
 }
 
@@ -40,7 +45,12 @@
 }
 
 .colorPrimary {
-  background: #31bb6b;
+  background: #a8c7fa;
+  color: #555555;
+}
+
+.widthset {
+  width: 200px;
 }
 
 .backgroundWhite {

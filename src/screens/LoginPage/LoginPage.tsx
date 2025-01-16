@@ -601,7 +601,7 @@ const loginPage = (): JSX.Element => {
                       />
                       <Button
                         tabIndex={-1}
-                        className={`position-absolute z-10 bottom-0 end-0 h-100 d-flex justify-content-center align-items-center`}
+                        className={`position-absolute z-10 bottom-0 end-0 h-100 d-flex justify-content-center align-items-center ${styles.sigin_buttons} `}
                       >
                         <EmailOutlinedIcon />
                       </Button>
@@ -632,7 +632,7 @@ const loginPage = (): JSX.Element => {
                       <Button
                         onClick={togglePassword}
                         data-testid="showPassword"
-                        className={`position-absolute z-10 bottom-0 end-0 h-100 d-flex justify-content-center align-items-center`}
+                        className={`position-absolute z-10 bottom-0 end-0 h-100 d-flex justify-content-center align-items-center ${styles.sigin_buttons}`}
                       >
                         {showPassword ? (
                           <i className="fas fa-eye"></i>
@@ -784,7 +784,7 @@ const loginPage = (): JSX.Element => {
                       <Button
                         data-testid="showPasswordCon"
                         onClick={toggleConfirmPassword}
-                        className={`position-absolute z-10 bottom-0 end-0 h-100 d-flex justify-content-center align-items-center`}
+                        className={`position-absolute z-10 bottom-0 end-0 h-100 d-flex justify-content-center align-items-center ${styles.sigin_buttons}`}
                       >
                         {showConfirmPassword ? (
                           <i className="fas fa-eye"></i>
@@ -824,7 +824,17 @@ const loginPage = (): JSX.Element => {
                           <TextField
                             {...params}
                             label="Organizations"
-                            className={styles.selectOrgText}
+                            className="styles.selectOrgText"
+                            sx={{
+                              '& .MuiOutlinedInput-root': {
+                                '&.Mui-focused fieldset': {
+                                  borderColor: '#555555',
+                                },
+                              },
+                              '& .MuiInputLabel-root.Mui-focused': {
+                                color: '#555555',
+                              },
+                            }}
                           />
                         )}
                       />
@@ -845,7 +855,7 @@ const loginPage = (): JSX.Element => {
                   )}
                   <Button
                     type="submit"
-                    className="mt-4 w-100 mb-3"
+                    className={`mt-4 fw-bold w-100 mb-3 ${styles.sigin_buttons}`}
                     value="Register"
                     data-testid="registrationBtn"
                     disabled={signinLoading}
@@ -859,7 +869,7 @@ const loginPage = (): JSX.Element => {
                   <Button
                     variant="outline-secondary"
                     value="Register"
-                    className="mt-3 mb-5 w-100"
+                    className={`mt-3 fw-bold mb-5 w-100 ${styles.reg_btn} `}
                     data-testid="goToLoginPortion"
                     onClick={(): void => {
                       setShowTab('LOGIN');
