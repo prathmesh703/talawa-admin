@@ -367,6 +367,11 @@ function orgList(): JSX.Element {
               variant="success"
               onClick={toggleModal}
               data-testid="createOrganizationBtn"
+              style={{
+                backgroundColor: '#EAEBEF',
+                borderColor: '#555555',
+                color: '#555555',
+              }}
             >
               <i className={'fa fa-plus me-2'} />
               {t('createOrganization')}

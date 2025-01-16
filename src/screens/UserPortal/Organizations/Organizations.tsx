@@ -14,7 +14,6 @@ import { Button, Dropdown, Form, InputGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from 'utils/useLocalstorage';
 import styles from './Organizations.module.css';
-import ProfileDropdown from 'components/ProfileDropdown/ProfileDropdown';
 
 const { getItem } = useLocalStorage();
 
@@ -309,15 +308,14 @@ export default function organizations(): JSX.Element {
         }`}
       >
         <div className={`${styles.mainContainer}`}>
-          <div className="d-flex justify-content-between align-items-center">
+          <div className={`d-flex justify-content-between align-items-center `}>
             <div style={{ flex: 1 }}>
               <h1>{t('selectOrganization')}</h1>
             </div>
-            <ProfileDropdown />
           </div>
 
-          <div className="mt-4">
-            <InputGroup className={styles.maxWidth}>
+          <div className="mt-4 d-flex justify-content-between gap-4">
+            <InputGroup className={styles.searchwidth}>
               <Form.Control
                 placeholder={t('searchOrganizations')}
                 id="searchOrganizations"
@@ -337,7 +335,7 @@ export default function organizations(): JSX.Element {
             </InputGroup>
             <Dropdown drop="down-centered">
               <Dropdown.Toggle
-                className={`${styles.colorPrimary} ${styles.borderNone}`}
+                className={` ${styles.widthset} ${styles.colorPrimary} ${styles.borderNone}`}
                 variant="success"
                 id="dropdown-basic"
                 data-testid={`modeChangeBtn`}
@@ -367,37 +365,42 @@ export default function organizations(): JSX.Element {
               className={`d-flex flex-column ${styles.gap} ${styles.paddingY}`}
             >
               {loadingOrganizations ? (
-                <div className={`d-flex flex-row justify-content-center`}>
+                <div className="d-flex flex-row justify-content-center">
                   <HourglassBottomIcon /> <span>Loading...</span>
                 </div>
               ) : (
                 <>
-                  {' '}
                   {organizations && organizations.length > 0 ? (
-                    (rowsPerPage > 0
-                      ? organizations.slice(
-                          page * rowsPerPage,
-                          page * rowsPerPage + rowsPerPage,
-                        )
-                      : /* istanbul ignore next */
-                        organizations
-                    ).map((organization: InterfaceOrganization, index) => {
-                      const cardProps: InterfaceOrganizationCardProps = {
-                        name: organization.name,
-                        image: organization.image,
-                        id: organization._id,
-                        description: organization.description,
-                        admins: organization.admins,
-                        members: organization.members,
-                        address: organization.address,
-                        membershipRequestStatus:
-                          organization.membershipRequestStatus,
-                        userRegistrationRequired:
-                          organization.userRegistrationRequired,
-                        membershipRequests: organization.membershipRequests,
-                      };
-                      return <OrganizationCard key={index} {...cardProps} />;
-                    })
+                    <div className="row">
+                      {(rowsPerPage > 0
+                        ? organizations.slice(
+                            page * rowsPerPage,
+                            page * rowsPerPage + rowsPerPage,
+                          )
+                        : /* istanbul ignore next */
+                          organizations
+                      ).map((organization: InterfaceOrganization, index) => {
+                        const cardProps: InterfaceOrganizationCardProps = {
+                          name: organization.name,
+                          image: organization.image,
+                          id: organization._id,
+                          description: organization.description,
+                          admins: organization.admins,
+                          members: organization.members,
+                          address: organization.address,
+                          membershipRequestStatus:
+                            organization.membershipRequestStatus,
+                          userRegistrationRequired:
+                            organization.userRegistrationRequired,
+                          membershipRequests: organization.membershipRequests,
+                        };
+                        return (
+                          <div key={index} className="col-md-6 mb-4">
+                            <OrganizationCard {...cardProps} />
+                          </div>
+                        );
+                      })}
+                    </div>
                   ) : (
                     <span>{t('nothingToShow')}</span>
                   )}
